@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import List, Dict
 
 from Contributor import Contributor
+from Role import Role
 from Skill import Skill
 
 
@@ -10,7 +11,6 @@ class Project:
     best_before: int
     time_taken: int
     name: str
-    skills: List[Skill]
-    roles: Dict[Skill, Contributor]
+    roles: List[Role]
     best_score: int
     roles: List
