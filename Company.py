@@ -28,15 +28,19 @@ class Company:
                     break
             else:
                 return False
+        tot_end = 0
         for role, contributor in zip(project.roles, contributors):
-            if not contributor.can_assign_project(project, role):
+            curr_end = contributor.can_assign_project(project, role)
+            if curr_end:
+                tot_end = max(tot_end, curr_end)
+            else:
                 for prev_contributor in contributors:
                     prev_contributor.rollback()
                 return False
         for role, contributor in zip(project.roles, contributors):
             contributor.commit_assignment()
             role.contributor = contributor
-        return True
+        return project.calculate_score(tot_end)
 
     def assign_projects(self):
         for p in self.projects:

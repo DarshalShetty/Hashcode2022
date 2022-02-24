@@ -23,7 +23,7 @@ class Contributor:
         if self._skill_name in self.skill_index:
             role.contributor = self
             self._possible_available_from = project.time_taken + self.available_from
-            return True
+            return self._possible_available_from
         else:
             return False
 
