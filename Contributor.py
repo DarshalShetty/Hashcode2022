@@ -1,10 +1,9 @@
+from collections import defaultdict
 from typing import List
 
 # from Project import Project
 # from Role import Role
 from Skill import Skill
-
-from collections import defaultdict
 
 
 class Contributor:
@@ -39,5 +38,5 @@ class Contributor:
         self._skill_name = None
         self._level = None
 
-    def can_mentor(self, skill:Skill):
-        return self.skill_index.get(skill.name)>=skill.level
+    def can_mentor(self, skill: Skill):
+        return self.skill_index.get(skill.name) >= skill.level
