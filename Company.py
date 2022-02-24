@@ -7,7 +7,14 @@ from Project import Project
 class Company:
     def __init__(self, contributors: List[Contributor], projects: List[Project]):
         self.projects = {it.name: it for it in projects}
+        self.contributors = {it.name: it for it in contributors}
         self.current_score = 0
+        self.skill_lookup = self._index_skills()
+
+    @staticmethod
+    def _index_skills():
+
+        return {}
 
     def assign_project(self, project_name: str, contributors: List[Contributor]):
         project: Project = self.projects.get(project_name, None)
@@ -32,4 +39,9 @@ class Company:
         return True
 
     def assign_projects(self):
-        pass
+        for p in self.projects:
+            best_contribs = self.best_match(p)
+            self.assign_project(p, best_contribs)
+
+    def best_match(self, project: Project):
+        return []

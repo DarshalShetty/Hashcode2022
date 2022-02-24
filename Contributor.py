@@ -8,7 +8,8 @@ from Skill import Skill
 
 class Contributor:
 
-    def __init__(self, skills: List[Skill]):
+    def __init__(self, name, skills: List[Skill]):
+        self.name = name
         self.available_from = 0
         self._possible_available_from = 0
         self.skill_index = defaultdict(int, {it.name: it.level for it in skills})

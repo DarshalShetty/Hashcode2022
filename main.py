@@ -14,14 +14,14 @@ def parse_input(file):
     projects = []
 
     for _ in range(cont_num):
-        name, skill_num_str = file.readline().split()
+        cotrib_name, skill_num_str = file.readline().split()
         skill_num = int(skill_num_str)
         skills = []
         for _ in range(skill_num):
             name, level_str = file.readline().split()
             level = int(level_str)
             skills.append(Skill(name, level))
-        contributors.append(Contributor(skills))
+        contributors.append(Contributor(cotrib_name, skills))
 
     for _ in range(proj_num):
         name, days_taken_str, best_score_str, best_before_str, num_roles_str = file.readline().split()
