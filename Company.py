@@ -31,3 +31,5 @@ class Company:
             role.contributor = contributor
         return True
 
+    def assign_projects(self):
+        pass

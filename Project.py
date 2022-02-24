@@ -1,9 +1,7 @@
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List
 
-from Contributor import Contributor
 from Role import Role
-from Skill import Skill
 
 
 @dataclass

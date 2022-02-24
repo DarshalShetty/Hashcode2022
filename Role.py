@@ -2,10 +2,10 @@ from dataclasses import dataclass
 
 from Contributor import Contributor
 from Skill import Skill
+from typing import Optional
 
 
 @dataclass
 class Role:
-    name: str
     skill: Skill
-    contributor: Contributor
+    contributor: Optional[Contributor] = None
