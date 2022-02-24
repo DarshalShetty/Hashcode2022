@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import List
 
 from Contributor import Contributor
@@ -11,10 +12,14 @@ class Company:
         self.current_score = 0
         self.skill_lookup = self._index_skills()
 
-    @staticmethod
-    def _index_skills():
-
-        return {}
+    def _index_skills(self):
+        index = {}
+        for contr in self.contributors.values():
+            for skill_name in contr.skill_index:
+                if skill_name not in index:
+                    index[skill_name] = defaultdict(list)
+                index[skill_name][contr.skill_index[skill_name]].append(contr.name)
+        return index
 
     def assign_project(self, project_name: str, contributors: List[Contributor]):
         project: Project = self.projects.get(project_name, None)

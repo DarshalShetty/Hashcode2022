@@ -41,7 +41,7 @@ def parse_input(file):
     return projects, contributors
 
 
-in_file_name = "data/a_an_example.in.txt"
+in_file_name = "data/b_better_start_small.in.txt"
 
 if __name__ == '__main__':
     with open(in_file_name, 'r') as in_file:
